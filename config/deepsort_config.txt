@@ -3,9 +3,9 @@
 [IMAGE_DIRECTORY]
 /path/to/the/image/directory
 [METRIC_MODEL]
-/mnt/shared-data/restructure/deep-sort-lib/tf-models/111.meta
+/mnt/shared-data/horse-tracker/deep-sort/tf-models/111.meta
 [FEATURE_MODEL]
-/mnt/shared-data/restructure/deep-sort-lib/tf-models/mars-small128.ckpt-68577
+/mnt/shared-data/horse-tracker/deep-sort/tf-models/mars-small128.ckpt-68577
 [ARGS_NN_BUDGET]
 100
 [ARGS_MAX_COSINE_DISTANCE]
@@ -19,6 +19,6 @@
 [N_INIT]
 3
 [CLASSES]
-/mnt/shared-data/restructure/deep-sort-lib/config/classes.txt
+/mnt/shared-data/horse-tracker/deep-sort/config/classes.txt
 [SHOW_DETECTIONS] # 1 = true 0 = false
-1
+0
