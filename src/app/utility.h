@@ -4,6 +4,10 @@
 #include <opencv2/opencv.hpp>
 #include "dataType.h"
 
+#include <vector>
+#include <sstream>
+#include <string>
+
 class DETECTION_ROW 
 {
     public:

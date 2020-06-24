@@ -43,13 +43,15 @@ void tracker::_init(float max_cosine_distance, int nn_budget,
 
     for(const auto& c : classes)
     {
+        // TBD move color init to class const membe or ...
         color_map.insert(std::make_pair(c, cv::Scalar(rng.uniform(0,255), rng.uniform(0, 255), rng.uniform(0, 255))));
     }
 }
 
 void tracker::predict()
-{    
-    for(Track& track:tracks) {
+{
+    for (Track & track : tracks)
+    {
         track.predit(kf);
     }
 }
@@ -164,7 +166,8 @@ void tracker::_initiate_track(const DETECTION_ROW &detection)
     KAL_MEAN mean = data.first;
     KAL_COVA covariance = data.second;
     std::string detection_class = "";
-    cv::Scalar color = cv::Scalar(255, 255, 0);
+    // TBD move color init to class const membe or ...
+    cv::Scalar color = cv::Scalar(0, 255, 0);
 
     if(detection_classes.size() !=0)
     {

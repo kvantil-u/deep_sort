@@ -3,8 +3,11 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+#include <memory>
+#include <string>
 #include <iostream>
 #include <future>
+
 #include <tensorflow/core/public/session.h>
 #include <tensorflow/core/protobuf/meta_graph.pb.h>
 

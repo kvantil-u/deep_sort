@@ -21,6 +21,7 @@ using KAL_DATA = std::pair<KAL_MEAN, KAL_COVA>;
 using KAL_HDATA = std::pair<KAL_HMEAN, KAL_HCOVA>;
 
 //main
+// track_obj_id,  class_name, box_coordinate, color
 using RESULT_DATA = std::pair< std::pair<int,std::string>, std::pair<DETECTBOX, cv::Scalar> >;
 
 //tracker:

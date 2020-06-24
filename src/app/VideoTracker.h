@@ -5,6 +5,8 @@
 #include <future>
 #include "model.h"
 #include "param.h"
+#include "tracker.h"
+#include "FeatureTensor.h"
 
 /**
  * VideoTracker
@@ -23,15 +25,20 @@
  */
 class VideoTracker 
 {
-	public:
-		VideoTracker(const DeepSortParam& tracker_params);
-		bool run();
-		std::string showErrMsg();
+    public:
+        VideoTracker(const DeepSortParam& tracker_params);
+        // FOOBAR
+        bool run();
+        std::vector<RESULT_DATA> track(cv::Mat frame, DETECTIONS detections);
+        std::string showErrMsg();
 
-	private:
-		DeepSortParam params;
-		std::string errorMsg;
-		std::shared_ptr<ModelDetection> modelDetection;
+    private:
+        DeepSortParam params;
+        std::string errorMsg;
+        std::shared_ptr<ModelDetection> modelDetection;
+
+        tracker tr;
+        std::shared_ptr<FeatureTensor> ft;
 };
 
 

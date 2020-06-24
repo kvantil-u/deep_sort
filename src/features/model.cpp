@@ -233,8 +233,12 @@ void ModelDetection::ReadRcFileTotal(const std::string &file)
 		}
 		
         DETECTION_ROW tmpRow;
-		tmpRow.class_num = toInt(trim(cols[5]));
-		tmpRow.confidence = toFloat(trim(cols[6]));
+                // FOOBAR
+		// tmpRow.class_num = toInt(trim(cols[5]));
+		// tmpRow.confidence = toFloat(trim(cols[6]));
+		tmpRow.class_num = 1;
+		tmpRow.confidence = toFloat(trim(cols[5]));
+
 		tmpRow.tlwh = DETECTBOX(toInt(trim(cols[1])), toInt(trim(cols[2])), toInt(trim(cols[3])), toInt(trim(cols[4])));
 
 		rcs.push_back(tmpRow);

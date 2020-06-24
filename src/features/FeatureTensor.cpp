@@ -37,7 +37,9 @@ bool FeatureTensor::init() {
 	// const tensorflow::string checkpointPath = TENSORFLOW_MODEL;
 	const tensorflow::string checkpointPath = tf_model_data;
 	Tensor checkpointTensor(DT_STRING, TensorShape());
-	checkpointTensor.scalar<std::string>()() = checkpointPath;
+	// FOOBAR
+	//checkpointTensor.scalar<std::string>()() = checkpointPath;
+        checkpointTensor.scalar<tensorflow::tstring>()() = checkpointPath;
 	status = session->Run(
 			{ {graph_def.saver_def().filename_tensor_name(), checkpointTensor}, },
 			{}, {graph_def.saver_def().restore_op_name()}, nullptr );
@@ -88,11 +90,12 @@ bool FeatureTensor::getRectsFeature(const cv::Mat& img, DETECTIONS& d)
 
 	Tensor input_tensor(DT_UINT8, TensorShape({count, 128, 64, 3}));
 	tobuffer(mats, input_tensor.flat<uint8>().data());
-	std::vector<std::pair<tensorflow::string, Tensor>> feed_dict = {
-			{input_layer, input_tensor},
-	};
+	std::vector<std::pair<tensorflow::string, Tensor>> feed_dict = { {input_layer, input_tensor}, };
+
 	Status status = session->Run(feed_dict, outnames, {}, &output_tensors);
-	if(status.ok() == false) return false;
+	if(status.ok() == false)
+		return false;
+
 	float* tensor_buffer = output_tensors[0].flat<float>().data();
 	int i = 0;
 	
